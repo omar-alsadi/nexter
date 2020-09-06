@@ -1,0 +1,76 @@
+// COLOR VARIABLES
+$color-primary: #c69963;
+$color-primary-dark: #B28451;
+
+$color-secondary: #101d2c;
+
+$color-grey-light-1: #f9f7f6;
+$color-grey-light-2: #aaa;
+
+$color-grey-dark-1: #54483A;
+$color-grey-dark-2: #6D5D4B;
+
+// FONT VARIABLES
+$font-primary: "Nunito", sans-serif;
+$font-display: "Josefin Sans", sans-serif;
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: $font-primary;
+    color: $color-grey-dark-2;
+    font-size: 62.5%;
+    font-weight: 300;
+    line-height: 1.6;
+
+    @media only screen and (max-width: 1200px) {
+        font-size: 50%;
+    }
+}
+
+.container {
+    display: grid;
+
+    //            // first-row //second //third //add 3 rows = 6 rows
+    grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
+
+    //               // naming the column //width of column             //second col  and so on and so forth
+    grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(4rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(4rem, 1fr) [full-end];
+
+    @media only screen and (max-width: 1200px) {
+        grid-template-rows: 7rem 80vh min-content 40vw repeat(3, min-content);
+        grid-template-columns: [full-start] minmax(4rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(4rem, 1fr) [full-end];
+    }
+
+    @media only screen and (max-width: 800px) {
+        grid-template-rows: 7rem calc(100vh - 7rem);
+
+        // min-content min-content min-content repeat(3, min-content); it automatically will fix that
+    }
+
+    & > * {
+        padding: 20px;
+    }
+}
+
+.mb-sm {
+    margin-bottom: 2rem;
+}
+
+.mb-md {
+    margin-bottom: 3rem;
+}
+
+.mb-lg {
+    margin-bottom: 4rem;
+}
+
+.mb-hg {
+    margin-bottom: 8rem;
+}
